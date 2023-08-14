@@ -1,5 +1,22 @@
-function App() {
-    return <div>hello world!</div>;
-}
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 
-export default App;
+import LandingPage from "./pages/LandingPage";
+import ShoppingPage from "./pages/ShoppingPage";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+console.log(BrowserRouter, Link, Route, Routes);
+
+export default function App() {
+    return (
+        <BrowserRouter>
+            <div>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/shop" element={<ShoppingPage />} />
+                </Routes>
+                <Footer light={false} />
+            </div>
+        </BrowserRouter>
+    );
+}
