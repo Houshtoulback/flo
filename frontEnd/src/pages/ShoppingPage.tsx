@@ -70,7 +70,9 @@ export default function ShoppingPage() {
                     <div>{error}</div>
                 ) : (
                     products.map((product: productType) => {
-                        return <ShopItem product={product} />;
+                        return (
+                            <ShopItem product={product} key={product.slug} />
+                        );
                     })
                 )}
             </div>

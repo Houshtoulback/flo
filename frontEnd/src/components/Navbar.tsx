@@ -21,7 +21,7 @@ export default function Navbar() {
             }
         >
             <div>
-                <img src="assets/greenLogo.svg" className="w-28" />
+                <img src="./assets/greenLogo.svg" className="w-28" />
             </div>
 
             <div className={"hidden md:flex text-green-700"}>
