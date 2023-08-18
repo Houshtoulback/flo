@@ -1,6 +1,7 @@
-import banner from "../assets/banner.jpg";
+import { Link } from "react-router-dom";
+
 const bgStyle = {
-    backgroundImage: `url(${banner})`,
+    backgroundImage: "url(assets/banner.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
@@ -23,7 +24,7 @@ function Hero() {
                     Everything Is Better With Plants
                 </p>
                 <button className="py-4 px-5 mt-7 font-bold bg-green-600 hover:bg-green-700 hover:shadow-md transition">
-                    Shop Now
+                    <Link to="/shop">Shop Now</Link>
                 </button>
             </div>
         </div>

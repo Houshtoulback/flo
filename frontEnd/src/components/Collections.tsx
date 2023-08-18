@@ -1,8 +1,3 @@
-import cactus from "../assets/cactus.jpg";
-import succulent from "../assets/succulent.jpg";
-import bonsai from "../assets/bonsai.jpg";
-import indoor from "../assets/indoorPlants.jpg";
-
 const bgGradient = {
     background: "rgb(255,255,255)",
     backgroundImage:
@@ -27,10 +22,13 @@ export default function Collections() {
             className="py-10  grid grid-cols-2 xl:grid-cols-4 place-items-center"
             style={bgGradient}
         >
-            <CollectionItem image={cactus} title="cactus" />
-            <CollectionItem image={bonsai} title="bonsai" />
-            <CollectionItem image={succulent} title="succulent" />
-            <CollectionItem image={indoor} title="indoor plants" />
+            <CollectionItem image="assets/cactus.jpg" title="cactus" />
+            <CollectionItem image="assets/bonsai.jpg" title="bonsai" />
+            <CollectionItem image="assets/succulent.jpg" title="succulent" />
+            <CollectionItem
+                image="assets/indoorPlants.jpg"
+                title="indoor plants"
+            />
         </div>
     );
 }

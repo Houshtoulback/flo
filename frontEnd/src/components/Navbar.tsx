@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { ImMenu } from "react-icons/im";
-import greenLogo from "../assets/greenLogo.svg";
 
 function NavItem(props: { content: React.ReactNode; link: string }) {
     const { content, link } = props;
@@ -22,7 +21,7 @@ export default function Navbar() {
             }
         >
             <div>
-                <img src={greenLogo} className="w-28" />
+                <img src="assets/greenLogo.svg" className="w-28" />
             </div>
 
             <div className={"hidden md:flex text-green-700"}>

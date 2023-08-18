@@ -1,8 +1,3 @@
-import profile1 from "../assets/client-2.jpg";
-import profile2 from "../assets/client3.jpg";
-import profile3 from "../assets/client1.jpg";
-import profile4 from "../assets/cllient4.jpg";
-
 function Comment(props: { text: string; name: string; image: string }) {
     const { text, name, image } = props;
 
@@ -27,25 +22,25 @@ export default function Comments() {
                 <Comment
                     text="Suspendisse, occaecat exercitation est occaecati natoque sociis atque omnis! Habitant hendrerit eros, eum commodo quasi nihil nesciunt nonu aecenas aspernatur rattavc kaj."
                     name="Jeanice Ford"
-                    image={profile4}
+                    image="assets/cllient4.jpg"
                 />
 
                 <Comment
                     text="Habitant urna fugiat wisi nceptos sodales magna. Molestie suspendisse faucibus justo! Sollicitudin tempore unde, dolorem, blanditiis a nam beatae nihil bibendum, taciti."
                     name="Katty Pierce"
-                    image={profile1}
+                    image="assets/client-2.jpg"
                 />
 
                 <Comment
                     text="Suspendisse, occaecat exercitation est occaecati natoque sociis atque omnis! Habitant hendrerit eros, eum commodo quasi nihil nesciunt nonu aecenas aspernatur rattavc kaj."
                     name="Pedro Lima"
-                    image={profile2}
+                    image="assets/client3.jpg"
                 />
 
                 <Comment
                     text="Habitant urna fugiat wisi nceptos sodales magna. Molestie suspendisse faucibus justo! Sollicitudin tempore unde, dolorem, blanditiis a nam beatae nihil bibendum, taciti."
                     name="Laura Kyle"
-                    image={profile3}
+                    image="assets/client1.jpg"
                 />
             </div>
         </div>

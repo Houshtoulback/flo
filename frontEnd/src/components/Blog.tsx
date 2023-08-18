@@ -1,7 +1,3 @@
-import image1 from "../assets/person.jpg";
-import image3 from "../assets/woman-planting-plant-in-pot.jpg";
-import image4 from "../assets/pic55-free-img.png";
-
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import { AiFillInstagram } from "react-icons/ai";
 import { BiSolidQuoteAltRight } from "react-icons/bi";
@@ -10,8 +6,11 @@ export default function Blog() {
     return (
         <div className="grid grid-cols-1 xl:grid-cols-2 p-10 bg-slate-200">
             <div className="flex w-1/2 ">
-                <img className="" src={image1} />
-                <img className="" src={image3} />
+                <img className="" src="assets/person.jpg" />
+                <img
+                    className=""
+                    src="assets/woman-planting-plant-in-pot.jpg"
+                />
             </div>
             <div className=" p-8 lg:p-28">
                 <p className="text-lg capitalize text-green-800">
@@ -34,7 +33,7 @@ export default function Blog() {
                     Tempore ut mauris aenean cillum ultrices nunc aliqu auris
                     aenean mpore utma.
                 </p>
-                <img className="my-5" src={image4} />
+                <img className="my-5" src="/assets/pic55-free-img.png" />
                 <div className="flex">
                     <span className="inline-block px-2">
                         <AiFillInstagram size="30px" />
