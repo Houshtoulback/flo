@@ -17,11 +17,11 @@ export default function Navbar() {
     return (
         <div
             className={
-                "bg-white w-full h-20 flex justify-between items-center px-5 lg:px-20 xl:px-32"
+                "bg-white w-full h-20 flex justify-between items-center px-5 lg:px-20 xl:px-32 border-bottom"
             }
         >
             <div>
-                <img src="./assets/greenLogo.svg" className="w-28" />
+                <img src="/assets/greenLogo.jpg" className="w-28" />
             </div>
 
             <div className={"hidden md:flex text-green-700"}>

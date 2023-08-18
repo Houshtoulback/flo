@@ -6,7 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 import { RiCreativeCommonsZeroFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-function RatingStars(props: { rating: number }) {
+export function RatingStars(props: { rating: number }) {
     const { rating } = props;
     const fillStars = Math.trunc(rating);
     const halfStars = Math.ceil(rating - fillStars);

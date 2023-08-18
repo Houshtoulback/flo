@@ -61,7 +61,7 @@ export default function ShoppingPage() {
     }, []);
 
     return (
-        <div>
+        <div className="container mx-auto">
             <h1>Featured Products</h1>
             <div className="flex flex-wrap justify-center">
                 {loading ? (
