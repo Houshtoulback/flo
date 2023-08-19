@@ -3,10 +3,6 @@ import { useEffect, useReducer } from "react";
 import axios from "axios";
 import { RatingStars } from "../components/ShopItem";
 
-import { AiOutlineStar } from "react-icons/ai";
-import { AiFillStar } from "react-icons/ai";
-import { BsStarHalf } from "react-icons/bs";
-
 interface productType {
     name: string;
     slug: string;
@@ -78,10 +74,15 @@ export default function ProductPage() {
         <div>{error}</div>
     ) : (
         <div className="py-28">
-            <div className="flex justify-evenly container mx-auto">
-                <img className="max-w-xl" src={product.image} />
-                <div className="flex flex-col  max-w-3xl flex-1 py-10">
-                    <div className="uppderDiv border-bottom pb-5">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-x-10">
+                <div className="flex justify-center md:justify-end ">
+                    <img
+                        className="object-contain w-4/5 md:w-96 lg:w-[28rem] xl:w-[32rem]"
+                        src={product.image}
+                    />
+                </div>
+                <div className="md:w-96 lg:w-[28rem] xl:w-[32rem] w-4/5 md:m-0 m-auto ">
+                    <div className="uppderDiv border-bottom">
                         <div className="route">
                             Home / Indoor Plants / Aluminum Plan
                         </div>
@@ -94,9 +95,9 @@ export default function ProductPage() {
                         <RatingStars rating={product.rating} />
                         <p>{`reviews "${product.numReviews}"`}</p>
                         <p className="py-5">{product.description}</p>
-                        <div className="">
+                        <div className="my-7 flex flex-col md:flex-row justify-center items-center">
                             <input
-                                className="w-24 border-2 py-2 mr-5"
+                                className="border-2 py-3 px-5 w-32 mt-7 "
                                 type="number"
                                 name=""
                                 id=""
@@ -106,9 +107,9 @@ export default function ProductPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="lowerDiv">
+                    <div className="lowerDiv mt-6">
                         <span>{`category: ${product.category}`}</span>
-                        <p className="text-lg font-bold text-neutral-600 py-2 pt-4">
+                        <p className="text-lg font-bold text-neutral-600">
                             free shipping on orders over $50!
                         </p>
                         <div className="text-slate-600">
