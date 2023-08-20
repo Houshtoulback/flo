@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useReducer } from "react";
 import axios from "axios";
 import { RatingStars } from "../components/ShopItem";
+import { Helmet } from "react-helmet-async";
 
 interface productType {
     name: string;
@@ -76,16 +77,21 @@ export default function ProductPage() {
         <div className="py-28">
             <div className="grid grid-cols-1 md:grid-cols-2  gap-x-10">
                 <div className="flex justify-center md:justify-end ">
-                    <img
-                        className="object-contain w-4/5 md:w-96 lg:w-[28rem] xl:w-[32rem]"
-                        src={product.image}
-                    />
+                    <div className="">
+                        <img
+                            className="object-contain w-4/5 md:w-96 lg:w-[28rem] xl:w-[32rem]"
+                            src={product.image}
+                        />
+                    </div>
                 </div>
                 <div className="md:w-96 lg:w-[28rem] xl:w-[32rem] w-4/5 md:m-0 m-auto ">
                     <div className="uppderDiv border-bottom">
                         <div className="route">
                             Home / Indoor Plants / Aluminum Plan
                         </div>
+                        <Helmet>
+                            <title>{product.name}</title>
+                        </Helmet>
                         <h2 className="capitalize text-3xl font-bold py-5 text-slate-800">
                             {product.name}
                         </h2>
@@ -102,9 +108,15 @@ export default function ProductPage() {
                                 name=""
                                 id=""
                             />
-                            <button className="text-white py-3 px-5 mt-7 font-bold bg-green-600 hover:bg-green-700 hover:shadow-md transition">
-                                add to cart
-                            </button>
+                            {product.countInStock > 0 ? (
+                                <button className="text-white py-3 px-5 mt-7 font-bold bg-green-600 hover:bg-green-700 hover:shadow-md transition">
+                                    add to cart
+                                </button>
+                            ) : (
+                                <button className="text-white py-3 px-5 mt-7 font-bold bg-slate-500  cursor-not-allowed">
+                                    unavailable
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className="lowerDiv mt-6">

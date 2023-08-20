@@ -32,7 +32,7 @@ const data = {
             category: "indoorPlants",
             image: "/assets/plantImages/chineseEverGreen.jpg",
             price: 14.0,
-            countInStock: 5,
+            countInStock: 0,
             grower: "Hamid",
             rating: 5,
             numReviews: 14,

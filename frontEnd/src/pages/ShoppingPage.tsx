@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import axios from "axios";
 import ShopItem from "../components/ShopItem";
+import { Helmet } from "react-helmet-async";
 
 interface productType {
     name: string;
@@ -62,6 +63,9 @@ export default function ShoppingPage() {
 
     return (
         <div className="container mx-auto">
+            <Helmet>
+                <title>shop</title>
+            </Helmet>
             <h1>Featured Products</h1>
             <div className="flex flex-wrap justify-center">
                 {loading ? (
