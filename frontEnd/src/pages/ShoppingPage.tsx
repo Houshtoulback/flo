@@ -1,7 +1,8 @@
 import { useEffect, useReducer } from "react";
-import axios from "axios";
-import ShopItem from "../components/ShopItem";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
+import ShopItem, { LoadingShopItem } from "../components/ShopItem";
+import MessageBox from "../components/MessageBox";
 
 interface productType {
     name: string;
@@ -61,17 +62,25 @@ export default function ShoppingPage() {
         fetchData();
     }, []);
 
+    const componentArr = [];
+    for (let i = 0; i < 18; i++) {
+        componentArr.push(<LoadingShopItem key={i} />);
+    }
+
     return (
         <div className="container mx-auto">
             <Helmet>
                 <title>shop</title>
             </Helmet>
             <h1>Featured Products</h1>
+
             <div className="flex flex-wrap justify-center">
                 {loading ? (
-                    <div>Loading...</div>
+                    <div className="flex flex-wrap justify-center">
+                        {componentArr}
+                    </div>
                 ) : error ? (
-                    <div>{error}</div>
+                    <MessageBox variant="red">{error}</MessageBox>
                 ) : (
                     products.map((product: productType) => {
                         return (

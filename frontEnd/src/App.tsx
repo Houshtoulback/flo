@@ -15,6 +15,7 @@ export default function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/shop" element={<ShoppingPage />} />
                     <Route path="product/:slug" element={<ProductPage />} />
+                    <Route path="*" element={<div>ridi</div>} />
                 </Routes>
                 <Footer light={false} />
             </div>

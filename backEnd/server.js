@@ -6,6 +6,10 @@ const app = express();
 
 app.use(cors());
 
+app.get("/api/lazy-loading", (req, res) => {
+    res.send(data.products.length.toString());
+});
+
 app.get("/api/products", (req, res) => {
     res.send(data.products);
 });

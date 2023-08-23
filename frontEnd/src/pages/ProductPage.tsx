@@ -3,6 +3,7 @@ import { useEffect, useReducer } from "react";
 import axios from "axios";
 import { RatingStars } from "../components/ShopItem";
 import { Helmet } from "react-helmet-async";
+import MessageBox from "../components/MessageBox";
 
 interface productType {
     name: string;
@@ -70,9 +71,9 @@ export default function ProductPage() {
     }, [slug]);
 
     return loading ? (
-        <div>Loading...</div>
+        <div className="">loading</div>
     ) : error ? (
-        <div>{error}</div>
+        <MessageBox variant="red">{error}</MessageBox>
     ) : (
         <div className="py-28">
             <div className="grid grid-cols-1 md:grid-cols-2  gap-x-10">

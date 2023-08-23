@@ -51,16 +51,40 @@ function Tooltip(props: { children: React.ReactNode; massage: string }) {
     );
 }
 
+export function LoadingShopItem() {
+    return (
+        <div className="bg-white p-2 rounded-2xl shadow-lg flex flex-col sm:flex-row select-none m-7">
+            <div className="h-52 rounded-xl animate-pulse"></div>
+            <div className="flex flex-col flex-1 gap-5 sm:p-2">
+                <div className="flex flex-1 flex-col gap-3">
+                    <div className="bg-gray-200 w-48 animate-pulse h-48 rounded-2xl"></div>
+                    <div className="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+                    <div className="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+                    <div className="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+                    <div className="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+                </div>
+                <div className="mt-auto flex gap-3">
+                    <div className="bg-gray-200 w-14 h-8 animate-pulse rounded-full"></div>
+                    <div className="bg-gray-200 w-14 h-8 animate-pulse rounded-full"></div>
+                    <div className="bg-gray-200 w-14 h-8 animate-pulse rounded-full ml-auto"></div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function ShopItem(props: { product: productType }) {
     const { product } = props;
     return (
         <div className="flex flex-col m-2 lg:m-4 items-center">
             <div className="relative group">
                 <Link to={`/product/${product.slug}`}>
-                    <img
-                        className=" group-hover:opacity-30 opacity-100 transition w-56 mt-4 object-cover"
-                        src={product.image}
-                    />
+                    <div className="w-56 h-56 bg-gray-200">
+                        <img
+                            className=" group-hover:opacity-30 opacity-100 transition w-56 mt-4 object-cover"
+                            src={product.image}
+                        />
+                    </div>
                 </Link>
                 <div className="group-hover:opacity-100  transition opacity-0 absolute top-6 right-6 text-center">
                     <Tooltip massage="Quick view">
