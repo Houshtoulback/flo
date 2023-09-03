@@ -13,7 +13,8 @@ function NavItem(props: { content: React.ReactNode; link: string }) {
     );
 }
 
-export default function Navbar() {
+export default function Navbar(props: { cartItems: number }) {
+    const { cartItems } = props;
     return (
         <div
             className={
@@ -29,15 +30,22 @@ export default function Navbar() {
                 <NavItem content="Shop" link="/shop" />
                 <NavItem content="About Us" link="/about-us" />
                 <NavItem content="Testimonials" link="/testimonials" />
-                <NavItem
-                    content={<FaShoppingCart color="#00AB84" size="25px" />}
-                    link="/shopping-cart"
-                />
+                <div className="relative">
+                    <NavItem
+                        content={<FaShoppingCart color="#00AB84" size="25px" />}
+                        link="/cart"
+                    />
+                    {cartItems > 0 && (
+                        <span className="absolute top-5 right-5 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-rose-500 text-white">
+                            {cartItems}
+                        </span>
+                    )}
+                </div>
             </div>
             <div className="md:hidden">
                 <NavItem
                     content={<ImMenu color="#00AB84" size="35px" />}
-                    link="/shopping-cart"
+                    link="/"
                 />
             </div>
         </div>

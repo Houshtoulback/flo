@@ -4,11 +4,14 @@ import App from "./App.tsx";
 import "./index.css";
 
 import { HelmetProvider } from "react-helmet-async";
+import { StoreProvider } from "./Store.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <HelmetProvider>
-            <App />
-        </HelmetProvider>
+        <StoreProvider>
+            <HelmetProvider>
+                <App />
+            </HelmetProvider>
+        </StoreProvider>
     </React.StrictMode>
 );

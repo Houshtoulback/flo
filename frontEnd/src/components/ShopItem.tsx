@@ -75,6 +75,7 @@ export function LoadingShopItem() {
 
 export default function ShopItem(props: { product: productType }) {
     const { product } = props;
+
     return (
         <div className="flex flex-col m-2 lg:m-4 items-center">
             <div className="relative group">
@@ -93,7 +94,9 @@ export default function ShopItem(props: { product: productType }) {
 
                     {product.countInStock ? (
                         <Tooltip massage="Add to cart">
-                            <BsFillBasketFill size="25px" color="#4b4c4d" />
+                            <div>
+                                <BsFillBasketFill size="25px" color="#4b4c4d" />
+                            </div>
                         </Tooltip>
                     ) : (
                         <Tooltip massage="Sold Out!">
