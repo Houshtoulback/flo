@@ -1,13 +1,12 @@
-import PropTypes from "prop-types"
-
-Footer.propTypes = {
-    light: PropTypes.bool
-}
+import PropTypes from "prop-types";
 
 import { BsGithub } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BiLogoGmail } from "react-icons/bi";
 
+Footer.propTypes = {
+    light: PropTypes.bool,
+};
 export default function Footer(props) {
     const { light } = props;
 

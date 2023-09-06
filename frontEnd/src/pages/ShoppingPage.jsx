@@ -1,9 +1,9 @@
 import { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
+
 import ShopItem, { LoadingShopItem } from "../components/ShopItem";
 import MessageBox from "../components/MessageBox";
-
 
 const reducer = (state, action) => {
     switch (action.type) {

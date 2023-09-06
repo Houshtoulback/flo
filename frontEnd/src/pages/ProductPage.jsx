@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useReducer } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import { RatingStars } from "../components/ShopItem";
 import { Helmet } from "react-helmet-async";
 import MessageBox from "../components/MessageBox";
-
-
+import { Store } from "../Store";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -52,7 +51,15 @@ export default function ProductPage() {
         fetchData();
     }, [slug]);
 
-    
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    console.log(state);
+    function addToCartHandler() {
+        ctxDispatch({
+            type: "CART_ADD_ITEM",
+            payload: { ...product, quantity: 1 },
+        });
+    }
+
     return loading ? (
         <div className="">loading</div>
     ) : error ? (
@@ -94,7 +101,7 @@ export default function ProductPage() {
                             />
                             {product.countInStock > 0 ? (
                                 <button
-                                    
+                                    onClick={addToCartHandler}
                                     className="text-white py-3 px-5 mt-7 font-bold bg-green-600 hover:bg-green-700 hover:shadow-md transition"
                                 >
                                     add to cart

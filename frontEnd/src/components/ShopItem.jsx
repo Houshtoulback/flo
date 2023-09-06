@@ -1,5 +1,4 @@
-import PropTypes from "prop-types"
-
+import PropTypes from "prop-types";
 
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
@@ -12,8 +11,6 @@ import { Link } from "react-router-dom";
 RatingStars.propTypes = {
     rating: PropTypes.number,
 };
-
-
 
 export function RatingStars(props) {
     const { rating } = props;
@@ -36,10 +33,8 @@ export function RatingStars(props) {
 
 Tooltip.propTypes = {
     children: PropTypes.node,
-    massage: PropTypes.string
+    massage: PropTypes.string,
 };
-
-
 
 function Tooltip(props) {
     const { children, massage } = props;
@@ -79,7 +74,6 @@ export function LoadingShopItem() {
 ShopItem.propTypes = {
     product: PropTypes.object,
 };
-
 
 export default function ShopItem(props) {
     const { product } = props;
