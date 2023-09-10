@@ -17,7 +17,12 @@ export default function App() {
         <HelmetProvider>
             <BrowserRouter>
                 <div className="flex flex-col min-h-screen">
-                    <Navbar cartItems={cart.cartItems.length} />
+                    <Navbar
+                        cartItems={cart.cartItems.reduce(
+                            (a, c) => a + c.quantity,
+                            0
+                        )}
+                    />
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/shop" element={<ShoppingPage />} />
