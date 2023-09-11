@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import axios from "axios";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
@@ -7,6 +7,8 @@ import { BsFillBasketFill } from "react-icons/bs";
 import { AiFillEye } from "react-icons/ai";
 import { RiCreativeCommonsZeroFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Store } from "../Store";
 
 RatingStars.propTypes = {
     rating: PropTypes.number,
@@ -78,6 +80,27 @@ ShopItem.propTypes = {
 export default function ShopItem(props) {
     const { product } = props;
 
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const {
+        cart: { cartItems },
+    } = state;
+
+    const addToCartHandler = async (item) => {
+        const existItem = cartItems.find((x) => x._id == product._id);
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+        const { data } = await axios.get(
+            `http://localhost:5000/api/products/${item._id}`
+        );
+        if (data.countInStock < quantity) {
+            window.alert("Sorry. Product is out of stock");
+            return;
+        }
+        ctxDispatch({
+            type: "CART_ADD_ITEM",
+            payload: { ...item, quantity },
+        });
+    };
+
     return (
         <div className="flex flex-col m-2 lg:m-4 items-center">
             <div className="relative group">
@@ -94,9 +117,13 @@ export default function ShopItem(props) {
                         <AiFillEye size="25px" color="#4b4c4d" />
                     </Tooltip>
 
-                    {product.countInStock ? (
+                    {product.countInStock > 0 ? (
                         <Tooltip massage="Add to cart">
-                            <div>
+                            <div
+                                onClick={() => {
+                                    addToCartHandler(product);
+                                }}
+                            >
                                 <BsFillBasketFill size="25px" color="#4b4c4d" />
                             </div>
                         </Tooltip>

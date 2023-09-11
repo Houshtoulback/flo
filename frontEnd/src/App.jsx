@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import CartPage from "./pages/CartPage";
 import { Store } from "./Store";
 import { useContext } from "react";
+import Example from "./pages/Example";
 
 export default function App() {
     const { state } = useContext(Store);
@@ -25,6 +26,7 @@ export default function App() {
                     />
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
+                        <Route path="/example" element={<Example />} />
                         <Route path="/shop" element={<ShoppingPage />} />
                         <Route path="product/:slug" element={<ProductPage />} />
                         <Route path="*" element={<CartPage />} />
